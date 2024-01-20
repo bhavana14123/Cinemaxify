@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--   Tasks: -->
+
+    <!--    # Beans for NormalPlan and PremiumPlan with bean id are already created,
+              you are supposed to add the class attribute to them respectively.       -->
+
+    <bean id="normal" class="com.example.Cinemaxify.NormalPlan"/>
+    <bean id="premium" class="com.example.Cinemaxify.PremiumPlan"/>
+
+<!--    Self-->
+    <bean id="selfNormal" class="com.example.Cinemaxify.Self">
+        <constructor-arg name="plan" ref="normal"></constructor-arg>
+    </bean>
+
+    <bean id="selfPremium" class="com.example.Cinemaxify.Self">
+        <constructor-arg name="plan" ref="premium"></constructor-arg>
+    </bean>
+
+<!--    Spouse-->
+    <bean id="spouseNormal" class="com.example.Cinemaxify.Spouse">
+        <constructor-arg name="plan" ref="normal"></constructor-arg>
+    </bean>
+
+    <bean id="spousePremium" class="com.example.Cinemaxify.Spouse">
+        <constructor-arg name="plan" ref="premium"></constructor-arg>
+    </bean>
+
+
+</beans>
